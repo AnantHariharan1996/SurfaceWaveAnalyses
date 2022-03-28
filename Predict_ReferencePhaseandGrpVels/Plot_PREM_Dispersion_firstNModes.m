@@ -1,5 +1,6 @@
 %% Plot_PREM_Phase_and_Group_Velocities
-maxn=10;
+clear; clc; %close all;
+maxn=1;
 
 cmapp = hsv((maxn+1));
 
@@ -8,7 +9,7 @@ cmapp = hsv((maxn+1));
 %%%%% Do not touch anything below here
 
 [nval lval period cv gv q]=read_dotqfile('PREM750_LoveWaves_QFile_Output');
-figure(1)
+figure()
 cpltlist = []; gpltlist = [];
 for n = [0:1:maxn]
     legendlist{n+1} = ['n = ' num2str(n)];
@@ -49,3 +50,5 @@ hlegend=legend(cpltlist,legendlist,'location','eastoutside')
 
 subplot(1,2,2)
 hlegend=legend(gpltlist,legendlist,'location','eastoutside')
+
+set(gcf,'position',[167 426 1346 412])
