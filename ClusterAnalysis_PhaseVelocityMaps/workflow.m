@@ -1,7 +1,7 @@
 %% Workflow
 
-Read_and_Setup_Data
-
-Plot_CommonlySampledPhVelPlots
-
+% Read_and_Setup_Data
+Read_and_Setup_Data_LoveModels
+%Plot_CommonlySampledPhVelPlots
+Plot_CommonlySampledPhVelPlots_LoveModels
 Cluster_and_Plot_Results

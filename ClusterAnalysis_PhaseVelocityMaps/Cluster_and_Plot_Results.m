@@ -2,7 +2,7 @@
 % try k values from 2 to 10
 
 
-for k = 2:1:25 
+for k = 2:1:11 
 
 close all
 cmapppp = jet(k);
@@ -31,7 +31,7 @@ ylabel('Phase Velocity (m/s)')
 set(gca,'fontsize',16)
 set(gcf,'position',[-8 426 1221 318])
 xlim([min(periodlist)-5 max(periodlist)+5])
-saveas(gcf,['SummaryFigs/ClusteranalysisSummary_' num2str(k) 'clusters.jpg'])
+saveas(gcf,['SummaryFigs/LoveWavesClusteranalysisSummary_' num2str(k) 'clusters.jpg'])
 
 
 end
