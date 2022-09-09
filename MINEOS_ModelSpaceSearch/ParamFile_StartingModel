@@ -1,0 +1,6 @@
+Card_Files/MCMCStartingModel.card
+asc_Files/StartingModel.asc
+eig_Files/StartingModel.eig
+1e-10 10
+2
+0 500 5 50.05 0 1
