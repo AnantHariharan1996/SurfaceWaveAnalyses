@@ -1,6 +1,6 @@
-Card_Files/TempMod.card
-asc_Files/prem_35_TempMod.asc
-eig_Files/prem_35_TempMod.eig
+Card_Files/GridSearchModel.card
+asc_Files/GridSearchTempMod.asc
+eig_Files/GridSearchTempMod.eig
 1e-10 10
 2
-0 500 5 50.05 0 1
+0 500 5 50.05 0 2

@@ -23,9 +23,9 @@ for ijk=1:length(flist)
 delete(['asc_Files/' flist(ijk).name])
 
 end
-
-flist = dir('Card_Files/*.card')
-for ijk=1:length(flist)
-delete(['Card_Files/' flist(ijk).name])
-
-end
+% 
+% flist = dir('Card_Files/*.card')
+% for ijk=1:length(flist)
+% delete(['Card_Files/' flist(ijk).name])
+% 
+% end

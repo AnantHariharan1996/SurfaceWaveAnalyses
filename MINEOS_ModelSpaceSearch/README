@@ -1,2 +1,6 @@
 To compile, I use
-gfortran -o minos_bran_moreknot minos_bran_cadmod_moreknot.f 
+gfortran -o minos_bran_moreknot minos_bran_cadmod_moreknot.f
+gfortran -o mineos_q mineos_q.f
+ gfortran -o mineos_table mineos_table.f
+ gfortran -o mineos_strip mineos_strip.f
+

@@ -7,12 +7,12 @@ for curr_layer = 1:NLayers_Model
     
     Curr_LayerEdges = LayerEdges(curr_layer,:);
     Curr_VsBounds = Vsh_Prior_Edges(curr_layer,:);
-    depthdx = find(NewModel.z>min(LayerEdges) & NewModel.z<max(LayerEdges) );
+    depthdx = find(NewModel.z>min(Curr_LayerEdges) & NewModel.z<max(Curr_LayerEdges) );
 
     current_depthvs = median(CurrentModel.vsh(depthdx));
     curr_NewVs = (rand(1,1)-0.5)*Perturb_VeloList(curr_layer)+current_depthvs;
     curr_NewVs
-  while curr_NewVs>max(Vsh_Prior_Edges) | curr_NewVs<min(Vsh_Prior_Edges)
+  while curr_NewVs>max(Curr_VsBounds) | curr_NewVs<min(Curr_VsBounds)
     %
     curr_NewVs = (rand(1,1)-0.5)*Perturb_VeloList(curr_layer)+current_depthvs;
     end

@@ -2,10 +2,16 @@
 % 
 clear; clc; close all;
 CleanWorkingFolder
-LayerEdges = [50 100];
+LayerEdges = [30 50;
+               50 70
+               70 90
+               90 110];
 NLayers_Model = length(LayerEdges(:,1));
-Vsh_Prior_Edges = [2000 6000];
-Perturb_VeloList = 300;
+Vsh_Prior_Edges = [2000 6000;
+                    2000 6000;
+                    2000 6000;
+                    2000 6000];
+Perturb_VeloList = [300 300 300 300];
 StoreCounter=1;
 
 card=read_model_card('Card_Files/prem_35.card');
@@ -16,7 +22,8 @@ NumIter=400;
 %% Load Dataset
 % (In this case, -predict- a synthetic dataset)
 card=read_model_card('Card_Files/prem_35.card');
-depthdx = find(card.z>min(LayerEdges) & card.z<max(LayerEdges) );
+jnkjnk=card.z;
+depthdx = find(jnkjnk > 80 & jnkjnk<max(LayerEdges(:)) );
 card.vsh(depthdx) = 3000;
 write_MINEOS_mod(card,['Card_Files/prem_35_LVZSynth.card'])
 
@@ -70,7 +77,6 @@ Likelihoodlist(StoreCounter) =Current_Likelihood;
 figure(1)
 plot(Data2Use_Period,InterpedPhvels,'-ko','linewidth',2)
 
-
 figure(12)
     plot(StartingModel.vsh,StartingModel.z,'linewidth',2)
     hold on
@@ -79,3 +85,9 @@ set(gca,'fontsize',15,'fontweight','bold')
 xlabel('Vsh')
 ylim([0 200])
 ylabel('Depth (km)')
+
+%% Get Kernels
+
+ [QParamname] = Write_MineosQParam_File('ParamFile_StartingQ','prem_35.qmod','StartingQFile.q',Eigname);
+
+[String] = Run_MineosQ('ParamFile_StartingQ','mineos_q');
