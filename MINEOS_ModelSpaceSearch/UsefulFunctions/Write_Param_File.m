@@ -11,7 +11,7 @@ line2=['asc_Files/' Ascname '\n'];
 line3=['eig_Files/' Eigname '\n'];
 line4=['1e-10 10' '\n'];
 line5=[num2str(mode) '\n'];
-line6=['0 500 5 50.05 0 ' num2str(nmax) '\n'];
+line6=['0 1800 10 200.05 0 ' num2str(nmax) '\n'];
 
 fid=fopen(ParamFname,'w')
 

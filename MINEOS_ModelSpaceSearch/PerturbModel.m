@@ -3,23 +3,28 @@
 
 %Vsh_Prior_Edges = [3700 4700];
 NewModel=CurrentModel;
-for curr_layer = 1:NLayers_Model
-    
-    Curr_LayerEdges = LayerEdges(curr_layer,:);
-    Curr_VsBounds = Vsh_Prior_Edges(curr_layer,:);
-    depthdx = find(NewModel.z>min(Curr_LayerEdges) & NewModel.z<max(Curr_LayerEdges) );
 
-    current_depthvs = median(CurrentModel.vsh(depthdx));
-    curr_NewVs = (rand(1,1)-0.5)*Perturb_VeloList(curr_layer)+current_depthvs;
-    curr_NewVs
-  while curr_NewVs>max(Curr_VsBounds) | curr_NewVs<min(Curr_VsBounds)
-    %
-    curr_NewVs = (rand(1,1)-0.5)*Perturb_VeloList(curr_layer)+current_depthvs;
-    end
-        NewModel.vsh(depthdx) = curr_NewVs;
-    write_MINEOS_mod(NewModel,['Card_Files/TempMod.card'])
+% randomly choose a layer
+randval= randsample(4,1);
+curr_layer = randval;
 
+Curr_LayerEdges = LayerEdges(curr_layer,:);
+Curr_VsBounds = Vsh_Prior_Edges(curr_layer,:);
+depthdx = find(NewModel.z>min(Curr_LayerEdges) & NewModel.z<max(Curr_LayerEdges) );
+
+current_depthvs = median(CurrentModel.vsh(depthdx));
+curr_NewVs = (rand(1,1)-0.5)*Perturb_VeloList(curr_layer)+current_depthvs;
+
+while curr_NewVs>max(Curr_VsBounds) | curr_NewVs<min(Curr_VsBounds)
+%
+curr_NewVs = (rand(1,1)-0.5)*Perturb_VeloList(curr_layer)+current_depthvs;
 end
+NewModel.vsh(depthdx) = curr_NewVs;
+ModelInfoStruc(curr_layer).TrialVsh_List = [ModelInfoStruc(curr_layer).TrialVsh_List curr_NewVs];
+
+
+
+write_MINEOS_mod(NewModel,['Card_Files/TempMod.card'])
 
 mode=2; ParamFname='ParamFile_TempMod';
 Ascname = 'prem_35_TempMod.asc';

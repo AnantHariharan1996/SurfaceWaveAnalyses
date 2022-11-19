@@ -23,6 +23,16 @@ for ijk=1:length(flist)
 delete(['asc_Files/' flist(ijk).name])
 
 end
+
+delete('ParamFile_mcmc')
+delete('ParamFileSynth')
+
+flist = dir('*.jpg')
+for ijk=1:length(flist)
+delete(flist(ijk).name)
+
+end
+
 % 
 % flist = dir('Card_Files/*.card')
 % for ijk=1:length(flist)
