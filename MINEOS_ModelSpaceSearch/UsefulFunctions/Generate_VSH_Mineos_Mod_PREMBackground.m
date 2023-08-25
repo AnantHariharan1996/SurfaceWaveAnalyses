@@ -67,6 +67,7 @@ card.eta(idx) =[];
 card.eta = [card.eta; ((fliplr(vsh)./fliplr(vsv_interped)).^2)'];
 fixdx = find(card.eta == Inf);
 card.eta(fixdx) = 1;
+card.vsv(fixdx) = card.vsh(fixdx);
 card.qmu(idx) =[];
 card.qmu = [card.qmu; fliplr(qmu_interped)'];
 

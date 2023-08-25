@@ -3,7 +3,7 @@
 %% begin the process. 
 
 % First define the depth range
-Model_Depths = [0:5:80];
+Model_Depths = [0:10:80];
 premcard=read_model_card('Card_Files/prem_35.card');
 % depth is in km
 depths_native = premcard.z;
@@ -23,7 +23,7 @@ for currDepth = Model_Depths
   Dcounter=Dcounter+1
  premvsh(Dcounter) = interp1(tmpdepths,premcard.vsh,currDepth);
 % disp(Dcounter);
-  Sample_Distribution(Dcounter,:) = [premvsh(Dcounter)-2000:10:premvsh(Dcounter)+2000];
+  Sample_Distribution(Dcounter,:) = [premvsh(Dcounter)-2500:10:premvsh(Dcounter)+2500];
   
 end
 
@@ -39,6 +39,8 @@ Current_Likelihood = Initial_Likelihood;
 
 %% Set up Variables to store the proposal values
 NumIter = 500000;
-StepSize = 1000;
+StepSize = 1500;
 Acceptance_Counter=0;
- rng(rand(1))
+ChainId = round(abs(5678*rand));
+ rng(ChainId)
+ AcceptanceRadeModifier =1;

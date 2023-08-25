@@ -18,6 +18,8 @@ ylim([0 250])
 hold on
 plot(ncard.vsv,ncard.z,'-o','linewidth',2)
 
+
+
 [FM_Periods,FM_Phvel,ncard] = GetPredPhVel(depths,vsh)
 figure()
 plot(FM_Periods,FM_Phvel,'-o','linewidth',2)

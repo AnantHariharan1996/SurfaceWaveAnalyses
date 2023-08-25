@@ -21,3 +21,10 @@ ylabel('depth (km)')
 %%%
 subplot(1,2,2)
 plot(FM_Periods,FM_Phvel)
+
+param='ParamFile_premtest';
+[String] = Run_Mineos(param,'minos_bran_moreknot')
+[ModelMat,nlist,llist,phvel,wmhz,tsecs,grpvel,q,raylquo] = Read_MINEOS_asc_File('premtest.asc');
+%execfname='minos_bran_moreknot';
+figure()
+plot(tsecs(find(nlist==0)),phvel(find(nlist==0)),'-ro')
