@@ -1,24 +1,24 @@
-function [ fx,fy,angle,xgrid,ygrid,tgrid2 ] = Get_arrival_angle( evla,evlo,stlat,stlon,tsec )
+function [ fx,fy,angle,xgrid,ygrid,tgrid2 ] = Get_arrival_angle( evla,evlo,stlat,stlon,tsec,spacing )
 eqlat=evla(1);
 eqlon=evlo(1);
 [d,az]=distance(eqlat,eqlon,stlat,stlon);
-
-dkm=deg2km(distance(eqlat,eqlon,stlat,stlon));
-
-p=polyfit(dkm,tsec,1);
-ave_c=1./p(1)
-tp=polyval(p,dkm);
-meanv=mean(abs(tp-tsec));
-h=find(abs(tp-tsec)>(3*meanv)); %remove outlier travel times
-stlat(h)=[];
-stlon(h)=[];
-tsec(h)=[];
+% 
+% dkm=deg2km(distance(eqlat,eqlon,stlat,stlon));
+% 
+% p=polyfit(dkm,tsec,1);
+% ave_c=1./p(1)
+% tp=polyval(p,dkm);
+% meanv=mean(abs(tp-tsec));
+% h=find(abs(tp-tsec)>(3*meanv)); %remove outlier travel times
+% stlat(h)=[];
+% stlon(h)=[];
+% tsec(h)=[];
 
 xmin=min(stlon);
 xmax=max(stlon);
 ymin=min(stlat);
 ymax=max(stlat);
-[xgrid,ygrid] = meshgrid(xmin:0.25:xmax,ymin:0.25:ymax);
+[xgrid,ygrid] = meshgrid(xmin:spacing:xmax,ymin:spacing:ymax);
 
 %interpolate travel times and amplitudes onto grid
 tgrid=griddata(stlon,stlat,tsec,xgrid,ygrid);
@@ -26,7 +26,7 @@ newt=tgrid(:);
 
 tgrid2=reshape(newt,[size(xgrid)]);
 
-[fx,fy]=gradient(tgrid2,deg2km(0.25),deg2km(0.25)); %dt/dtheta and dt/dphi
+[fx,fy]=gradient(tgrid2,deg2km(spacing),deg2km(spacing)); %dt/dtheta and dt/dphi
 
 angle = rad2deg(atan2(fx,fy));
 idx = find(angle < 0);
