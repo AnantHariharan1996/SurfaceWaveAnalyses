@@ -1,0 +1,47 @@
+%% Solve for Arrival Angles 
+%% Using a Mini-array approach
+
+clear; clc; close all;
+xlist= [-120:0.8:-80];
+ylist= [28:0.8:48];
+Phvel = 4;
+%% Inputs
+[Sta_Lons,Sta_Lats] = meshgrid(xlist,ylist);
+Sta_Lons=Sta_Lons(:);
+Sta_Lats=Sta_Lats(:);
+EvLon = [-150];
+EvLat = [10];
+distlist=distance(EvLat,EvLon,Sta_Lats,Sta_Lons);
+distlist_km=deg2km(distlist);
+L_Tol = 1;
+TTime = distlist_km./Phvel;
+Min_N_Stations=3;
+%%
+
+for ijk = 1:length(Sta_Lats)
+curr_stalat=  Sta_Lats(ijk);
+curr_stalon=  Sta_Lons(ijk);
+% Get arrival angle assuming plane wave as 
+% a starting estimate. 
+[alen,azimuthstart] = distance(EvLat,EvLon,curr_stalat,curr_stalon);
+
+% Get mini-array;
+dists2otherstns = distance(curr_stalat,curr_stalon,Sta_Lats,Sta_Lons);
+idx=find(dists2otherstns<L_Tol);
+if length(idx) < Min_N_Stations
+
+arraylats=Sta_Lats(idx);
+arraylons=Sta_Lons(idx);
+arrayttimes=TTime(idx);
+
+for iijjkk = 1:length(arraylats)
+
+% get phase diff, etc.
+
+end
+
+
+end
+
+end
+
