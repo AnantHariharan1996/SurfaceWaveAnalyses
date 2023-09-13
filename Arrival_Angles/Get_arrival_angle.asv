@@ -1,4 +1,4 @@
-function [ fx,fy,angle,xgrid,ygrid,tgrid2 ] = Get_arrival_angle(stlat,stlon,tsec,spacing )
+function [ fx,fy,angle,xgrid,ygrid,tgrid2 ] = Get_arrival_angle( evla,evlo,stlat,stlon,tsec,spacing )
 % 
 % dkm=deg2km(distance(eqlat,eqlon,stlat,stlon));
 % 

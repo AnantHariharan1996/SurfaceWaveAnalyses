@@ -14,7 +14,7 @@ curr_stalon=  Sta_Lons(ijk);
 % Get arrival angle assuming plane wave as 
 % a starting estimate. 
 [alen,azimuthstart] = distance(EvLat,EvLon,curr_stalat,curr_stalon);
-searchaz=azimuthstart-40:0.5:azimuthstart+40;
+searchaz=azimuthstart-40:0.25:azimuthstart+40;
 % Get mini-array;
 dists2otherstns = distance(curr_stalat,curr_stalon,Sta_Lats,Sta_Lons);
 idx=find(dists2otherstns<L_Tol);

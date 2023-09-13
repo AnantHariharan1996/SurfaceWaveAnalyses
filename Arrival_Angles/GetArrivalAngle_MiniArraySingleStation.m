@@ -12,7 +12,7 @@ for azcheck =searchaz
     % Loop over a trial source that is given by a fixed distance and azimuth
     % from station location
     
-    [trialsourcelat,trialsourcelon] = track1(stalat,stalon,azcheck,arclen2use);
+    [trialsourcelat,trialsourcelon] = track1(stalat,stalon,azcheck+180,arclen2use);
     trialsourcelat=trialsourcelat(end);
     trialsourcelon=trialsourcelon(end);
     trialsourcelatlist(Mcount)=trialsourcelat;

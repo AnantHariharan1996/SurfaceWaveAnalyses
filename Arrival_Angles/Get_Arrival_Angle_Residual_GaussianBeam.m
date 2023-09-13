@@ -9,11 +9,9 @@ function [delta,xgrid,ygrid,ttime_field_perturbed,tau,ttime_field_noscatter] ...
 disp('Calculated Phase traveltime fields')
 
 % 2) Get arrival angles with and without the scatterer
-[ fx,fy,angle,xgrid,ygrid,tgrid2 ] = Get_arrival_angle( evla,evlo,...
-    GridLat,GridLon,ttime_field_perturbed,spacing);% 
+[ fx,fy,angle,xgrid,ygrid,tgrid2 ] = Get_arrival_angle(GridLat,GridLon,ttime_field_perturbed,spacing);% 
 
-[ fx,fy,angle_nodiff,xgrid,ygrid,tgrid2 ] = Get_arrival_angle( evla,evlo,...
-    GridLat,GridLon,ttime_field_noscatter,spacing );%
+[ fx,fy,angle_nodiff,xgrid,ygrid,tgrid2 ] = Get_arrival_angle(GridLat,GridLon,ttime_field_noscatter,spacing );%
 disp('Calculated Arrival Angles')
 
 % 3) get difference between angles
