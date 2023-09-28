@@ -30,6 +30,7 @@ arrayttimes=TTime(idx);
 ArrivalAngleList(ijk) = Best_Angle;
 else
 ArrivalAngleList(ijk) = NaN;
+Best_LocalPhVelList(ijk) = NaN;
 
 end
 

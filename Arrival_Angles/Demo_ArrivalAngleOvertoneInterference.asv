@@ -22,6 +22,32 @@ dtpFMname = ['dtpamp_oceanFM' num2str(Period) 's'];
 EvLatF=evlaF(1);
 EvLonF=evloF(1);
 
+% 
+% [ArrivalAngleListA,Best_LocalPhVelListA] = ...
+%     GetArrivalAngles_Event_MiniArray(stalonA,stalatA,tabsA,L_Tol,EvLatA,EvLonA,Min_N_Stations);
+% [ArrivalAngleListF,Best_LocalPhVelListF] = ...
+%     GetArrivalAngles_Event_MiniArray(stalonF,stalatF,tabsF,L_Tol,EvLatF,EvLonF,Min_N_Stations);
+% 
+% figure(1)
+% subplot(2,3,1)
+% scatter(cAMInfo(:,1),cAMInfo(:,2),50,cAMInfo(:,3),'filled')
+% colorbar
+% subplot(2,3,2)
+% scatter(cFMInfo(:,1),cFMInfo(:,2),50,cFMInfo(:,3),'filled')
+% colorbar
+% subplot(2,3,3)
+% scatter(cAMInfo(:,1),cAMInfo(:,2),50,cAMInfo(:,3)-cFMInfo(:,3),'filled')
+% colorbar
+% %%%%
+% subplot(2,3,4)
+% scatter(stalonA,stalatA,50,ArrivalAngleListA,'filled')
+% colorbar
+% subplot(2,3,5)
+% scatter(stalonF,stalatF,50,ArrivalAngleListF,'filled')
+% colorbar
+% subplot(2,3,6)
+% scatter(stalonA,stalatA,50,ArrivalAngleListA-ArrivalAngleListF,'filled')
+% colorbar
 
 figure(2)
 [ fxA,fyA,angleA,xgridA,ygridA,tgrid2A ] = Get_arrival_angle(stalatA,stalonA,tabsA,0.25 );
@@ -33,7 +59,7 @@ subplot(1,2,1)
 scatter(xgridA,ygridA,20,angleA-angleF,'filled')
 caxis([-10 10])
 barbr=colorbar;
-title('Difference Between All-Mode and Fundamental Mode Arrival Angles')
+title('Difference Between All-Mode and Fundamental Mode Arrival Angle')
 ylabel(barbr,'Arrival Angle Residual (degrees)')
 set(gca,'fontsize',20,'fontweight','bold')
 load coastlines
@@ -41,7 +67,6 @@ hold on
 plot(coastlon,coastlat,'linewidth',2,'color','k')
 xlim([-130 -70])
 ylim([25 50])
-box on; grid on;
 subplot(1,2,2)
 scatter(cAMInfo(:,1),cAMInfo(:,2),50,100*(cAMInfo(:,3)-cFMInfo(:,3)),'filled')
 caxis([-250 250])
@@ -49,16 +74,10 @@ barbr=colorbar;
 load coastlines
 hold on
 plot(coastlon,coastlat,'linewidth',2,'color','k')
-title('Difference Between All-Mode and Fundamental Mode Phase Velocities')
+title('All-Mode Eikonal Phase Velocity - Fundamental Mode Eikonal Phase Velocity')
 ylabel(barbr,'Eikonal Phase Velocity Difference (m/s)')
 colormap(jet)
 set(gca,'fontsize',20,'fontweight','bold')
 set(gcf,'position',[108 627 1661 371])
 xlim([-130 -70])
 ylim([25 50])
-box on; grid on;
-set(gcf,'position',[108 594 2087 404])
-
-
-saveas(gcf,'OvertoneIntComparison_PhVel_ArrivalAngle.jpg')
-saveas(gcf,'OvertoneIntComparison_PhVel_ArrivalAngle.png')

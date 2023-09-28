@@ -30,7 +30,7 @@ idx = find(angle < 0);
 angle(idx) = 360+angle(idx);
   
 %k = convhull(stlon,stlat);
-k = boundary(stlon,stlat);
+k = boundary(stlon,stlat,1);
 polylon=stlon(k);
 polylat=stlat(k);
 
