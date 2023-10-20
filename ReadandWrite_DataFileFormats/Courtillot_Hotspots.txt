@@ -1,0 +1,49 @@
+Afar 10N 43 no Ethiopia 30 1 good high slow 4
+Ascension 8S 346 no no / na na na 0 0+?
+AustraliaE 38S 143 yes no / 0.9 fair na 0 1+?
+Azores 39N 332 no? no / 1.1 fair high? 0 1+?
+Baja/Guadalupe 27N 247 yes? no / 0.3 poor low 0 0+?
+Balleny 67S 163 no no / na na na 0 0+?
+Bermuda 33N 293 no no? / 1.1 good na 0 0+?
+Bouvet 54S 2 no no / 0.4 fair high 0 1+?
+Bowie 53N 225 yes no / 0.3 poor na slow 2+?
+Cameroon 4N 9 yes? no / na na na 0 0+?
+Canary 28N 340 no no / 1 fair low slow 2
+CapeVerde 14N 340 no no / 1.6 poor high 0 2
+Caroline 5N 164 yes no / 2 poor high 0 3
+Comores 12S 43 no no / na na na 0 0+?
+Crozet/Pr.Edward 45S 50 yes? Karoo? 183 0.5 good na 0 0+?
+Darfur 13N 24 yes? no / na poor na 0 0+?
+Discovery 42S 0 no? no / 0.5 poor high 0 1+?
+Easter 27S 250 yes mid-Pac mnt? 100? 3 fair high slow 4+?
+Eifel 50N 7 yes? no / na na na 0 0+?
+Fernando 4S 328 yes? CAMP? 201? 0.5 poor na 0 0+?
+Galapagos 0 268 yes? Carribean? 901 fair high 0 2+?
+GreatMeteor/NewEngland 28N 328 yes? no? / 0.5 poor na 0 0+?
+Hawaii 20N 204 yes subducted? s 80? 8.7 good high slow 4+?
+Hoggar 23N 6 no No / 0.9 poor na slow 1
+Iceland 65N 340 yes? Greenland 61 1.4 good high slow 4+?
+JanMayen 71N 352 no? yes? / na poor na slow 1+?
+JuandeFuca/Cobb 46N 230 yes no / 0.3 fair na slow 2+?
+JuanFernandez 34S 277 yes? no / 1.6 poor high 02+?
+Kerguelen(Heard) 49S 69 yes Rajmahal? 118 0.5 poor high 0 2+?
+Louisville 51S 219 yes Ontong-Java 122 0.9 poor na slow 3+?
+LordHowe(TasmanEast) 33S 159 yes? no / 0.9 poor na slow 1+?
+Macdonald(Cook-Austral) 30S 220 yes? yes? / 3.3 fair high? slow 2+?
+Marion 47S 38 yes Madagascar ? 88 na na na 0 1+?
+Marqueses 10S 222 yes Shatski? ?? ? 3.3 na low 02+?
+Martin/Trindade 20S 331 yes? no / 0.5 poor na fast 0+?
+Meteor 52S 1 yes? no / 0.5 poor na 0 0+?
+Pitcairn 26S 230 yes no / 3.3 fair high? 02+?
+Raton 37N 256 yes? no / na na na slow 1+?
+Reunion 21S 56 yes Deccan 65 1.9 poor high 0 4
+StHelena 17S 340 yes no / 0.5 poor low 0 1
+Samoa 14S 190 yes no? 14? 1.6 poor high slow 4
+SanFelix 26S 280 yes? no / 1.6 poor na 0 1+?
+Socorro 19N 249 no no / na poor na slow 1+?
+Tahiti/Society 18S 210 yes no / 3.3 fair high? 02+?
+Tasmanid(TasmanCentral) 39S 156 yes no / 0.9 poor na slow 2
+Tibesti 21N 17 yes? no / na poor na 0 0+?
+Tristan 37S 348 yes Parana 133 1.7 poor low 0 3
+Vema 33S 4 yes? yes? (Orange R.) / na poor na 0 0+?
+Yellowstone 44N 249 yes? Columbia? 16 1.5 fair high 02+?

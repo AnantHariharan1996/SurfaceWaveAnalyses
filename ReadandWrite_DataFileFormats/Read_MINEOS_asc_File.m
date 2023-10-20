@@ -20,8 +20,11 @@ while  ~feof(fid)
         counter=counter+1;
         
         for ijk = 1:length(Strings)
-        tmpparr(ijk) = str2num(Strings{ijk});
-
+        if strcmp(Strings{ijk},'***')
+            tmpparr(ijk) = NaN;
+        else
+            tmpparr(ijk) = str2num(Strings{ijk});
+        end
         end
 
         ModelMat(counter,:) = tmpparr;

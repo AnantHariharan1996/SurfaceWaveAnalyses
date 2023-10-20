@@ -8,7 +8,7 @@ function [ttime_field_perturbed,tau,ttime_field_noscatter,R_forgrid,x_forgrid,Q]
 counter=0;
 
 % set up great circle path
-[tracklat,tracklon] = track1(evla,evlo,az,180,[],[],1000);
+[tracklat,tracklon] = track1(evla,evlo,az,180,[],[],10000);
 xlist= distance(scatterlat,scattererlon,tracklat,tracklon);
 
 % for every point on the grid, get the perpendicular distance, 

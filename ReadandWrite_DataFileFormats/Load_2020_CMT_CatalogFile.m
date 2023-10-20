@@ -1,5 +1,6 @@
 % Load updated CMT Catalog file until 2020
 
+
 CMTInfo_2020 = load('global_1977_2020_foranant');
 Catalog_Year = CMTInfo_2020(:,1);
 Catalog_month=CMTInfo_2020(:,2); 
@@ -21,7 +22,7 @@ Catalog_r = Catalog_Mrr.^2 + Catalog_Mtt.^2 +Catalog_Mpp.^2 ...
 + Catalog_Mrt.^2 + Catalog_Mrp.^2 + Catalog_Mtp.^2;
 Catalog_MO=(10.^Catalog_y).*sqrt(Catalog_r)/sqrt(2); 
 Catalog_MW=(2/3)*(log10(Catalog_MO)-16.1);
-
+Catalog_t = datetime(Catalog_Year,Catalog_month,Catalog_day,Catalog_hr,Catalog_min,Catalog_s);
 %% Verify events by showing gutenberg-richter for GCMT cat
-histogram(Catalog_MW)
-set(gca,'YScale','log');
+% histogram(Catalog_MW)
+% set(gca,'YScale','log');
