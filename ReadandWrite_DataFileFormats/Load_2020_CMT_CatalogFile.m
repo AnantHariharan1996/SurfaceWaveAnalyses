@@ -24,5 +24,5 @@ Catalog_MO=(10.^Catalog_y).*sqrt(Catalog_r)/sqrt(2);
 Catalog_MW=(2/3)*(log10(Catalog_MO)-16.1);
 Catalog_t = datetime(Catalog_Year,Catalog_month,Catalog_day,Catalog_hr,Catalog_min,Catalog_s);
 %% Verify events by showing gutenberg-richter for GCMT cat
-% histogram(Catalog_MW)
-% set(gca,'YScale','log');
+histogram(Catalog_MW)
+set(gca,'YScale','log');
