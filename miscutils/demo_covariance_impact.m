@@ -1,8 +1,8 @@
 %% Do some synthetic inversions to solve least-squares under different conditions
 clear; close all; clc;
 
-Synthetic_x = [1 2 2 3 3 3]
-Synthetic_y = [1 2 3 3 2 2]
+Synthetic_x = [1 2 2 3 3 3];
+Synthetic_y = [1 2 3 3 2 2];
 % the last three data points are the ones that are outliers.
 % Also, the last two data points are duplicates. 
 
@@ -13,7 +13,7 @@ G(ijk,:) = [currx 1];
 end
 
 %% Now, run the inversion with different covariance matrices!
-Cd = zeros([length(Synthetic_y) length(Synthetic_y)])
+Cd = zeros([length(Synthetic_y) length(Synthetic_y)]);
 
 % Case with only diagonal weighting
 Cd_diagonal_allequalweight = Cd+eye(size(Cd));
