@@ -3,8 +3,9 @@ clear; close all; clc;
 
 Synthetic_x = [1 2 2 3 3 3];
 Synthetic_y = [1 2 3 3 2 2];
-% the last three data points are the ones that are outliers.
-% Also, the last two data points are duplicates. 
+% the last two data points are duplicates. 
+% note that the 'correct' slope, accounting for the duplicate, 
+% is a slope of 1. y-intercept should be 0. 
 
 % Make G Matrix. 
 for ijk = 1:length(Synthetic_x)
@@ -16,14 +17,14 @@ end
 Cd = zeros([length(Synthetic_y) length(Synthetic_y)]);
 
 % Case with only diagonal weighting
-Cd_diagonal_allequalweight = Cd+eye(size(Cd));
+Cd_diagonal_allequalweight = Cd+0.5.*eye(size(Cd));
 We=inv(Cd_diagonal_allequalweight);
 m_diagonal_allequalweight = inv(G'*We*G)*G'*We*Synthetic_y';
 dpred_diagonal_allequalweight = G*m_diagonal_allequalweight;
 
 
 % Case with only diagonal weighting, but alternate terms weighted less
-Cd_diagonal_unequalweight = Cd+eye(size(Cd));
+Cd_diagonal_unequalweight = Cd+0.5.*eye(size(Cd));
 Cd_diagonal_unequalweight(5,5) = (2);
 Cd_diagonal_unequalweight(6,6) = (2);
 We=inv(Cd_diagonal_unequalweight);
@@ -31,14 +32,15 @@ m_diagonal_unequalweight = inv(G'*We*G)*G'*We*Synthetic_y';
 dpred_diagonal_unequalweight = G*m_diagonal_unequalweight;
 
 % Case with only off-diagonal information. 
-Cd_offdiagonal = Cd+eye(size(Cd));
-Cd_offdiagonal(5,6) = 1;
-%Cd_offdiagonal(6,5) = 2;
+Cd_offdiagonal = Cd+0.5.*eye(size(Cd));
+Cd_offdiagonal(5,6) = 0.999;
+Cd_offdiagonal(6,5) = 0.999;
+
 We=inv(Cd_offdiagonal);
 m_offdiagonal =  inv(G'*We*G)*G'*We*Synthetic_y';
 dpred_offdiagonal = G*m_offdiagonal;
 
-
+Cd_offdiagonal
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
