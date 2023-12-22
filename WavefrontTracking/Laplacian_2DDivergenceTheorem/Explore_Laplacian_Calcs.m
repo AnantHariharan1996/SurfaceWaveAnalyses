@@ -32,4 +32,9 @@ figure(2)
 scatter(XX,YY,5,Lap_time(:),'filled')
 title('Laplacian of travel time')
 
-[FX,FY] = gradient(ttime);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[FX,FY] = gradient(ttime_2d);
+
+% loop over points, find the points around each one. 
+
+
