@@ -4,7 +4,9 @@
 % Then lap(f) = 6x;
 close all
 X = [-100:1:100];
+x_spacing = X(2)-X(1);
 Y = [-100:1:100];
+y_spacing = Y(2)-Y(1);
 [XX,YY] = meshgrid(X,Y);
 XXforloop = XX(:);
 YYforloop = YY(:);
@@ -74,8 +76,16 @@ for ijk = 1:len
 currX = XXforloop(ijk);
 currY = YYforloop(ijk);
 % find the closed 'loop' that encloses every point. 
+% define loop as right, bottom right, down, bottom left, left, top left,
+% top, top right. 
 
+loopX = [currX+x_spacing currX+x_spacing currX currX-x_spacing ...
+    currX-x_spacing currX-x_spacing currX currX+x_spacing];
 
+loopY = [currY currY-y_spacing currY-y_spacing currY-y_spacing currY...
+    currY+y_spacing currY+y_spacing currY+y_spacing];
+
+% get the values of the gradient that we care about along these paths. 
 
 
 end
