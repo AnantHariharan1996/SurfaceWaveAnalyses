@@ -12,7 +12,7 @@ figure(1)
 ax1 = subplot(2,2,1)
 load('downwellinglith.mat')
 %imagesc(tmptmp)
-contourf(xgrd,ygrd,-1.*tmptmp,-1*[500 1600],'linewidth',2,'linecolor','k')
+contourf(xgrd,ygrd,-1.*tmptmp,-1*[500 1600],'linewidth',3,'linecolor','k')
 % colormap([0.4470588235294118 0.054901960784313725 0.027450980392156862; ...
 %     0.9333333333333333 0.8117647058823529 0.42745098039215684])
 % % clabel(c,h)
@@ -36,22 +36,30 @@ xlabel('+\delta V = Cold; -\delta V = Ambient','fontsize',32,'fontweight','bold'
 ax2 = subplot(2,2,2)
 
 load('threerisingblob.mat')
+tmp2 =  load('threerisingblob.mat')
+layer2 = tmp2.tmptmp;
+tmptmp = imgaussfilt(layer2,1)
+
+
 tmpxgrd = xgrd(:);
-
+tmpygrd = ygrd(:);
+newtmptmp = tmptmp;
 for ijk = 1:length(xgrd(:))
-    pt2smoothx = 24.6;
-pt2smoothy = 6.1;
-dist2grid = distance(pt2smoothy,pt2smoothx,ygrd,xgrd);
+    pt2smoothx = tmpxgrd(ijk);
+pt2smoothy =tmpygrd(ijk);
+dist2grid = distance(pt2smoothy,pt2smoothx,tmpygrd,tmpxgrd);
 
-idx = find(dist2grid < 2);
-tmptmp(idx) = median(tmptmp(idx));
+idx = find(dist2grid < 1);
+newtmptmp(idx) = median(tmptmp(idx));
 
 end
 
-%tmptmp = imgaussfilt(tmptmp,0.7);
+% tmptmp = imgaussfilt(tmptmp,0.7);
+% 
+% tmptmp(find(tmptmp  > 1650)) = 2000;
+% newtmptmp(find(tmptmp  > 1650)) = 2000;
 
-tmptmp(find(tmptmp  > 1650)) = 2000;
-contourf(xgrd,ygrd,-1.*tmptmp,-1.*[1660 2000],'linewidth',2,'linecolor','k')
+contourf(xgrd,ygrd,-1.*tmptmp,-1.*[1600 3000],'linewidth',3,'linecolor','k')
 %clabel(c,h)
 set(gca,'ydir','reverse')
 ylim([0 30])
@@ -83,7 +91,7 @@ e = 0.9975;
  w = atan2(y2-y1,x2-x1);
  x = (x1+x2)/2 + X*cos(w) - Y*sin(w);
  y = (y1+y2)/2 + X*sin(w) + Y*cos(w);
-patch(x,y,[1 0 1],'edgecolor','k','linewidth',2)
+patch(x,y,[1 0 1],'edgecolor','k','linewidth',3)
 
 x1 = 43.2;  x2 = x1+(19-6)
 %e = 0.995;
@@ -96,7 +104,7 @@ x1 = 43.2;  x2 = x1+(19-6)
  w = atan2(y2-y1,x2-x1);
  x = (x1+x2)/2 + X*cos(w) - Y*sin(w);
  y = (y1+y2)/2 + X*sin(w) + Y*cos(w);
-patch(x,y,[1 0 1],'edgecolor','k','linewidth',2)
+patch(x,y,[1 0 1],'edgecolor','k','linewidth',3)
 
 x1 = 78;  x2 = x1+(19-6)
 %e = 0.995;
@@ -109,10 +117,10 @@ x1 = 78;  x2 = x1+(19-6)
  w = atan2(y2-y1,x2-x1);
  x = (x1+x2)/2 + X*cos(w) - Y*sin(w);
  y = (y1+y2)/2 + X*sin(w) + Y*cos(w);
-patch(x,y,[1 0 1],'edgecolor','k','linewidth',2)
+patch(x,y,[1 0 1],'edgecolor','k','linewidth',3)
 
 
-patch([min(xgrd(:)) max(xgrd(:)) max(xgrd(:)) min(xgrd(:)) min(xgrd(:))],[3 3 0 0 3],[0.13725490196078433 0.39215686274509803 0.6666666666666666],'edgecolor','k','linewidth',2)
+patch([min(xgrd(:)) max(xgrd(:)) max(xgrd(:)) min(xgrd(:)) min(xgrd(:))],[3 3 0 0 3],[0.13725490196078433 0.39215686274509803 0.6666666666666666],'edgecolor','k','linewidth',3)
 
 
 
@@ -122,7 +130,7 @@ text(78,1.5,'1100 K','FontName','Arial','fontweight','bold','fontsize',22,'color
 ax3= subplot(2,2,3)
 load('downwellinglith.mat')
 %imagesc(tmptmp)
-contourf(xgrd,ygrd,-1.*tmptmp,-1*[500 1600],'linewidth',2,'linecolor','k')
+contourf(xgrd,ygrd,-1.*tmptmp,-1*[500 1600],'linewidth',3,'linecolor','k')
 % colormap([0.4470588235294118 0.054901960784313725 0.027450980392156862; ...
 %     0.9333333333333333 0.8117647058823529 0.42745098039215684])
 % % clabel(c,h)
@@ -153,7 +161,7 @@ e = 0.9975;
  w = atan2(y2-y1,x2-x1);
  x = (x1+x2)/2 + X*cos(w) - Y*sin(w);
  y = (y1+y2)/2 + X*sin(w) + Y*cos(w);
-patch(x,y,[1 0 1],'edgecolor','k','linewidth',2)
+patch(x,y,[1 0 1],'edgecolor','k','linewidth',3)
 
 x1 = 59;  x2 = x1+(19-6)
 y1 = 8; y2 = 8;
@@ -167,7 +175,7 @@ y1 = 8; y2 = 8;
  w = atan2(y2-y1,x2-x1);
  x = (x1+x2)/2 + X*cos(w) - Y*sin(w);
  y = (y1+y2)/2 + X*sin(w) + Y*cos(w);
-patch(x,y,[1 0 1],'edgecolor','k','linewidth',2)
+patch(x,y,[1 0 1],'edgecolor','k','linewidth',3)
 
 
 set(gca,'ydir','reverse','linewidth',3)
@@ -200,8 +208,8 @@ layer2(:,17:101) = layer2(:,1:85)
 layer2(:,1:22) = 1600
 
 %imagesc(tmptmp)
-contourf(xgrd,ygrd,-1.*(imgaussfilt(tmptmp,0.5)+layer2),-1*(1600+[520 1600 3200]),'linewidth',2,'linecolor','k')
-%colorbar %-1*(1600+[500 1600 2000]),'linewidth',2,'linecolor','k')
+contourf(xgrd,ygrd,-1.*(imgaussfilt(tmptmp,0.5)+layer2),-1*(1600+[520 1600 3200]),'linewidth',3,'linecolor','k')
+%colorbar %-1*(1600+[500 1600 2000]),'linewidth',3,'linecolor','k')
 % colormap([0.4470588235294118 0.054901960784313725 0.027450980392156862; ...
 %     0.9333333333333333 0.8117647058823529 0.42745098039215684])
 % % clabel(c,h)
@@ -218,7 +226,7 @@ ylim([1 30])
  hold on
  %[c,h]=contour(xgrd,ygrd,tmptmp,[1600 1600])
 % scatter(pt2smoothx,pt2smoothy,20,'filled')
-% contourf(xgrd,ygrd,-1.*tmptmp,-1*[1600 1600],'linewidth',2,'linecolor','k')
+% contourf(xgrd,ygrd,-1.*tmptmp,-1*[1600 1600],'linewidth',3,'linecolor','k')
 % 
 % 
 % 
@@ -234,7 +242,7 @@ y1 = 8; y2 = 8;
  w = atan2(y2-y1,x2-x1);
  x = (x1+x2)/2 + X*cos(w) - Y*sin(w);
  y = (y1+y2)/2 + X*sin(w) + Y*cos(w);
-patch(x,y,[1 0 1],'edgecolor','k','linewidth',2)
+patch(x,y,[1 0 1],'edgecolor','k','linewidth',3)
 
 x1 = 60;  x2 = x1+(19-6)
 y1 = 8; y2 = 8;
@@ -248,7 +256,7 @@ y1 = 8; y2 = 8;
  w = atan2(y2-y1,x2-x1);
  x = (x1+x2)/2 + X*cos(w) - Y*sin(w);
  y = (y1+y2)/2 + X*sin(w) + Y*cos(w);
-patch(x,y,[1 0 1],'edgecolor','k','linewidth',2)
+patch(x,y,[1 0 1],'edgecolor','k','linewidth',3)
 
 xlabel('+\delta V = Cold; -\delta V = Hot (Melt)','fontsize',32,'fontweight','bold','Color','k')
 
